@@ -1,0 +1,63 @@
+﻿<Window x:Class="Task_WPF5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task_WPF5"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top" VerticalAlignment="Top">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Open" Click="Open_Click"/>
+                    <MenuItem Header="_Save" Click="Save_Click"/>
+                    <Separator/>
+                    <MenuItem Header="_Close" Click="Close_Click"/>
+                </MenuItem>
+                <MenuItem Header="_Graphic editor" Click="Graphic_Click"/>
+            </Menu>
+        </DockPanel>
+        <ToolBarTray Grid.Row="1">
+            <ToolBar>
+                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="200" SelectionChanged="ComboBox_SelectionChanged">
+                    <TextBlock Text="Arial"/>
+                    <TextBlock Text="New Times Roman"/>
+                    <TextBlock Text="Verdana"/>
+                </ComboBox>
+            </ToolBar>
+            <ToolBar>
+                <ComboBox Margin="5" Padding="5" SelectedIndex="0" Width="50" SelectionChanged="ComboBox_SelectionChanged_1">
+                    <TextBlock Text="12"/>
+                    <TextBlock Text="14"/>
+                    <TextBlock Text="16"/>
+                </ComboBox>
+            </ToolBar>
+            <ToolBar>
+                <Button Click="Bold_Click">
+                    <Image Source="Data\Text_Bold.png" Height="30"/>
+                </Button>
+                <Separator/>
+                <Button Click="Italic_Click">
+                    <Image Source="Data\Text_Italic.png" Height="30"/>
+                </Button>
+                <Separator/>
+                <Button Click="Underline_Click">
+                    <Image Source="Data\Text_Underline.png" Height="30"/>
+                </Button>
+            </ToolBar>
+            <ToolBar Margin="5" Padding="5">
+                <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                    <RadioButton Content="Чёрный" IsChecked="True" Checked="BlackRadioButton_Checked" />
+                    <RadioButton Content="Красный" Checked="RedRadioButton_Checked" />
+                </StackPanel>
+            </ToolBar>
+        </ToolBarTray>
+        <TextBox Name="textBox" Grid.Row="2" Margin="5" Padding="5" TextWrapping="Wrap" />
+    </Grid>
+</Window>
